@@ -1,3 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+:root {
+    --deckPadding: 30px;
+    --grid-gap: 30px;
+}
+
 body {
-    background: cornflowerblue;
+    background-color: rgb(192, 192, 192);
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 10vh 90vh;
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.dashboard {
+    background-color: cornflowerblue;
+    grid-column: 1;
+    grid-row: 1 / 3;
+    color: whitesmoke;
+}
+
+.header {
+    background-color: white;
+    grid-column: 2 / 3;
+    grid-row: 1;
+}
+
+.maincontent {
+    background-color: rgb(202, 202, 202);
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: var(--deckPadding);
+}
+
+.maincontent > div {
+    display: grid;
+}
+
+.projects {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    display: grid;
+    gap: var(--grid-gap);
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr repeat(4, 4fr);
+}
+
+/* titles for decks */
+.maincontent > div > span {
+    grid-column: 1 / 3;
+    align-self: end;
+}
+
+.projectcard {
+    background-color: white;
+    min-height: 300px;
+    max-width: 500px;
+    border: solid red 1px;
+}
+
+.annoucements {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: start;
+    gap: var(--grid-gap);
+    margin-left: var(--grid-gap);
+}
+
+.annoucedeck {
+    background-color: white;
+    padding: var(--deckPadding);
+}
+
+.annoucecard {
+    margin-top: 30px;
+}
+
+/* stops margin on first child */
+.annoucecard:first-child {
+    margin-top: 0px; 
+}
+
+.annoucecard > div:first-child {
+    font-weight: bold;
+    padding-bottom: 5px;
+    font-size: 1.1rem;
 }
