@@ -9,7 +9,7 @@
 body {
     background-color: rgb(192, 192, 192);
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 6fr;
     grid-template-rows: 10vh 90vh;
     margin: 0px;
     font-family: 'Roboto', sans-serif;
@@ -20,6 +20,38 @@ body {
     grid-column: 1;
     grid-row: 1 / 3;
     color: whitesmoke;
+    padding: var(--deckPadding);
+    display: grid;
+    align-items: center;
+    padding-bottom: 20vh;
+    font-size: 1.0rem;
+    font-weight: 700;
+}
+
+.dashoptions {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 10fr;
+    grid-row-gap: 12px;
+    grid-column-gap: 8px;
+}
+
+#dashboardlogo, #community {
+    padding-bottom: 6vh;
+}
+
+#dashboardlogo {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+#dashboardlogo > svg {
+    width: 36px;
+    height: 36px;
+}
+
+.dashboard > div > svg {
+    width: 18px;
 }
 
 .header {
@@ -29,7 +61,7 @@ body {
 }
 
 .maincontent {
-    background-color: rgb(202, 202, 202);
+    overflow: scroll;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
     display: grid;
@@ -55,6 +87,7 @@ body {
 .maincontent > div > span {
     grid-column: 1 / 3;
     align-self: end;
+    font-size: 1.4rem;
 }
 
 .projectcard {
@@ -64,12 +97,20 @@ body {
     border: solid red 1px;
 }
 
-.annoucements {
-    grid-column: 2;
-    grid-row: 1;
-    align-self: start;
+.rightcontent {
     gap: var(--grid-gap);
     margin-left: var(--grid-gap);
+    align-self: start;
+    grid-column: 2;
+}
+
+#announcements {
+    grid-row: 1;
+}
+
+#trending {
+    grid-row: 2;
+    margin-top: 60px;
 }
 
 .annoucedeck {
