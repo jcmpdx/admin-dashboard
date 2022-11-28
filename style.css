@@ -5,6 +5,7 @@
     --deckPadding: 30px;
     --grid-gap: 30px;
     --accentColor: cornflowerblue;
+    --fontFam: 'Roboto', sans-serif;
 }
 
 body {
@@ -13,7 +14,7 @@ body {
     grid-template-columns: 1fr 10fr;
     grid-template-rows: 15vh 85vh;
     margin: 0px;
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--fontFam)
 }
 
 svg {
@@ -178,10 +179,13 @@ svg {
     margin-bottom: -20px;
 }
 
-.projectcard {
+.projectcard, .rightcontent > div {
     background-color: white;
     box-shadow: 4px 2px 5px rgb(109, 109, 109);
     border-radius: 8px;
+}
+
+.projectcard {
     border-left: 6px solid var(--accentColor);
     padding: var(--deckPadding);
 }
@@ -192,6 +196,11 @@ svg {
     margin-bottom: 10px;
 }
 
+/* add character limit on .projtext */
+.projtext {
+
+}
+
 .projbuttons {
     margin-bottom: -10px;
     margin-top: 10px;
@@ -200,6 +209,19 @@ svg {
     display: flex;
     gap: 20px;
     justify-content: flex-end;
+    position: relative;
+}
+
+.projOne::after {
+    content: 'heart_plus';
+}
+
+.projTwo::after {
+    content: 'notification_add';
+}
+
+.projThree::after {
+    content: 'share';
 }
 
 .projbuttons > div:hover {
@@ -207,18 +229,41 @@ svg {
     cursor: pointer;
 }
 
-.projOne::after {
-    content: 'heart_plus';
+/* tooltip on hover */
+.projbuttons > div::before {
+    font-family: var(--fontFam);
+    display:none;
+    position: absolute;
+    margin-left: -10%;
+    top: -120%;
+    padding: 0.4rem;
+    font-size: 0.7rem;
+    text-align: center;
+    color: white;
+    background-color: #141414;
+    border: 1px solid #a8a8a8;
+    border-radius: 4px;
 }
 
-.projTwo:after {
-    content: 'notification_add';
+.projbuttons > div:hover::before {
+    display: block;
 }
 
-.projThree:after {
-    content: 'share';
+div.projOne::before {
+    content: 'Add to favorites';
 }
 
+div.projTwo::before {
+    width: 90px;
+    content: 'Add to watchlist';
+}
+
+div.projThree::before {
+    content: 'Share';
+    margin-left: -5px;
+}
+
+/* accouncements and trending */
 .rightcontent {
     gap: var(--grid-gap);
     margin-left: var(--grid-gap);
