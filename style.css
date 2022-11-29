@@ -196,6 +196,7 @@ svg {
     margin-bottom: 10px;
 }
 
+/* ATTENTION */
 /* add character limit on .projtext */
 .projtext {
 
@@ -271,13 +272,9 @@ div.projThree::before {
     grid-column: 2;
 }
 
+/* announcements */
 #announcements {
     grid-row: 1;
-}
-
-#trending {
-    grid-row: 2;
-    margin-top: 60px;
 }
 
 .annoucedeck {
@@ -286,7 +283,7 @@ div.projThree::before {
 }
 
 .annoucecard {
-    margin-top: 30px;
+    margin-top: var(--deckPadding);
 }
 
 /* stops margin on first child */
@@ -299,3 +296,37 @@ div.projThree::before {
     padding-bottom: 5px;
     font-size: 1.1rem;
 }
+
+/* trending */
+#trending {
+    grid-row: 2;
+    margin-top: 60px;
+}
+
+.trendcard {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 15px;
+    align-items: center;
+    margin-top: var(--deckPadding);
+}
+
+.trendcard > img {
+    grid-row: 1 / 3;
+    width: 60px;
+}
+
+.trendcard > div {
+    grid-column: 2;
+}
+
+.trendcard > div:nth-child(2) {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.trendcard:first-child {
+    margin-top: 0;
+}
+
